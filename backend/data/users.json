@@ -1,0 +1,14 @@
+{
+ "oscar916": {
+  "name": "oscar",
+  "password": "$2b$10$5cwCDY3kPg9ZhuoIgRbPh.6lqoUQdK7QQK3owaIVcND/b3MVsQjWS"
+ },
+ "kel": {
+  "name": "Kelvin",
+  "password": "$2b$10$Zg3Syp1mM0VgoRp8yshBMuwgTcoZF7UEEBKMc9RjNU1hhwB3WC02K"
+ },
+ "ham": {
+  "name": "Abraham",
+  "password": "$2b$10$g4uFPQ575f/zal4X4Oc2Pe9UBCPgPuHA0GCzq7j3FKzkuLx6ogoG2"
+ }
+}
