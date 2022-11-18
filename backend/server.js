@@ -48,6 +48,25 @@ app.post("/register", (req, res) => {
   res.json({ status: "success", message: "users has been created" });
 });
 
+app.post("/signin", (req, res) => {
+  const { username, password } = req.body;
+
+  const users = JSON.parse(fs.readFileSync(USER_FILE_PATH));
+
+  if (username in users === false) {
+    res.json({ status: "error", error: "user does not exists" });
+    return;
+  }
+
+  const hashedPassword = users[username]["password"];
+  if (!bcrypt.compareSync(password, hashedPassword)) {
+    res.json({ status: "error", error: "password is incorrect" });
+    return;
+  }
+
+  res.json({ status: "success", message: "successfully logged in" });
+});
+
 app.listen(8000, () => {
   console.log("Server starting at port 8000");
 });

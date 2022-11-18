@@ -47,9 +47,32 @@
   
         `{ status: "success", message: "users has been created" }`
 
+- /signin
+
+  Request Body:
+
+  e.g. `{
+  "username": "oscar916",
+  "password": "pwd"
+}`
+
+  Response:
+
+    1. Username does not exists:
+
+        `{ status: "error", error: "user does not exists" }`
+
+    2. Password is incorrect:
+
+        `{ status: "error", error: "password is incorrect" }`
+
+    3. Success:
+
+        `{ status: "success", message: "successfully logged in" }`
+
 ## Running the server:
-`
+```
 1. Goto the root directory
 2. Run 'npm install'
 3. Run 'npm start'
-`
+```
