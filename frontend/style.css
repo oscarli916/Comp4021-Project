@@ -1,0 +1,181 @@
+body {
+  background: linear-gradient(90deg, rgba(161, 226, 215, 1) 0%, rgba(118, 235, 224, 1) 35%, rgba(110, 213, 233, 1) 100%);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 70px;
+  font-family: 'Nabla', cursive;
+  margin: 0%;
+  text-align: center;
+}
+
+h3 {
+  color: #b9b60b;
+  padding-top: 5%;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+h4 {
+  color: #0bb96d;
+  position: relative;
+  text-align: center;
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.custom-btn {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: 500;
+  height: 40px;
+  padding: 10px 25px;
+  position: relative;
+  width: 150px;
+}
+
+.btn-start {
+  background: #b621fe;
+  border: none;
+  z-index: 1;
+}
+
+.btn-start:after {
+  background-color: #663dff;
+  border-radius: 5px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease;
+  width: 0;
+  z-index: -1;
+}
+
+.btn-start:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.btn-start:active {
+  top: 2px;
+}
+
+.score-grid {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+  height: 80px;
+  width: 200px;
+}
+
+.gradient-border {
+  --border-width: 3px;
+  align-items: center;
+  background-color: #222;
+  border-radius: var(--border-width);
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.gradient-border:after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.container {
+  display: flex;
+}
+
+.lines-grid {
+  background-color: rgb(45, 45, 45);
+  margin-bottom: 10px;
+  height: 80px;
+  width: 115px;
+}
+
+.mini-grid {
+  background-color: rgb(44, 44, 42);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 10px 5px;
+  width: 80px;
+  height: 80px;
+}
+
+.mini-grid div {
+  height: 20px;
+  width: 20px;
+}
+
+.grid {
+  background-color: rgb(45, 45, 45);
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+  width: 200px;
+}
+
+.grid div {
+  height: 20px;
+  width: 20px;
+}
+
+.zTetromino {
+  background-image: url(yellow.png);
+  background-size: contain;
+}
+
+.iTetromino {
+  background-image: url(blue.png);
+  background-size: contain;
+}
+
+.oTetromino {
+  background-image: url(green.png);
+  background-size: contain;
+}
+
+.tTetromino {
+  background-image: url(pink.png);
+  background-size: contain;
+}
+
+.lTetromino {
+  background-image: url(orange.png);
+  background-size: contain;
+}
+
+.color-red {
+  color: #F00;
+}
