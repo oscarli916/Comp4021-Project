@@ -45,8 +45,8 @@
                             <div class="group">
                                 <input type="submit" class="button" value="Sign In">
                             </div>
-                            <div class="hr"></div>
-                            <div id="sign-in-message" class="warning center"></div>
+                            
+                            <div id="sign-in-message" style="color : red" class="warning center"></div>
                         </form>
                     </div>
                     <div class="sign-up-htm">
@@ -66,16 +66,49 @@
                             <div class="group">
                                 <input type="submit" class="button" value="Sign Up">
                             </div>
-                            <div class="hr"></div>
-                            <div id="register-message" class="warning center"></div>
+                            
+                            <div id="register-message" style="color : red" class="warning center"></div>
                         </form>
                     </div>
                 </div>
             </div>
             
             <div class="right">
-                <p>Game description + instructions HERE</p>
-            </div>
+                <p class="DESINS" >DESCRIPTION:</p>
+                <p style="font-size:16px">You will pair up with another player!</p>
+                <p style="font-size:16px">Get higher score to win the game!</p>
+                <hr>
+                <br>
+                <p class="DESINS" >INSTRUCTION:</p>
+                <p style="font-size:16px">Duration: 180s</p> 
+                <table border = "1"  width = 105% cellpadding = "5" cellspacing = "5">
+                    <tr>
+                       <th>Action</th>
+                       <th>Key</th>
+                    </tr>
+                    <tr>
+                       <td>Move Left</td>
+                       <td>Left Arrow</td>
+                    </tr>
+                    <tr>
+                       <td>Move Right</td>
+                       <td>Right Arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Rotate(clockwise)</td>
+                        <td>Up Arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Soft Drop</td>
+                        <td>Down Arrow</td>
+                    </tr>
+                    <tr>
+                        <td>Cheat(stop)</td>
+                        <td>Hold spacebar</td>
+                    </tr>
+                </table>
+                    
+                                  
         </div>
     </div>
     
@@ -105,6 +138,7 @@
                     
                     Socket.connect();*/
                     console.log("Success")
+                    $("#sign-in-message").text("Success!");
                 },
                 (error) => { $("#sign-in-message").text(error); }
             );

@@ -1,0 +1,162 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    background: #f3f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+h1, h2 {
+    font-size: 1.5em;
+}
+h2.sub.header {
+    font-size: 1em;
+}
+
+#opponent{
+    margin-bottom: 20px;
+}
+
+#result{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.card {
+    display: flex;
+    background: #fff;
+    min-width: 50%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15), 0 55px 50px -20px rgba(34, 36, 38, .25);
+}
+.card-section {
+    flex-grow: 1;
+    padding: 40px;
+}
+.card-info {
+    position: relative;
+    background: linear-gradient(to bottom, #626d82 0%, #343d4d 100%);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+.card-info h2.sub.header {
+    color: rgba(255, 255, 255, 0.3);
+}
+.card-info .menu, .card-info .search {
+    position: absolute;
+    font-size: 3em;
+    left: 40px;
+}
+.card-info .menu {
+    top: 40px;
+}
+.card-info .search {
+    bottom: 40px;
+}
+.card-details {
+    position: relative;
+    color: rgba(0, 0, 0, 0.6);
+    width: 50%;
+}
+
+.dial {
+    color: #e45b6c;
+    text-shadow: inset 1px 1px 0 rgba(255, 255, 255, 1);
+    background: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 150px;
+    margin: 50px 0;
+    padding: 40px;
+    box-shadow: 0 4px 15px -10px rgba(0, 0, 0, .1), 0 5px 15px 1px rgba(0, 0, 0, .18), 0 0 0 15px #fff, 0 0 0 22px #e45b6c, 0 55px 50px -20px rgba(34, 36, 38, .25);
+}
+.dial-title {
+    font-size: 1.5em;
+    
+}
+.dial-value {
+    font-size: 3.8em;
+    font-weight: 400;
+    line-height: 0.8;
+    
+    
+}
+.menu {
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-size: 1.6em;
+    font-weight: 400;
+    padding: 20px 100px;
+    color: rgba(0, 0, 0, 0.3);
+    min-width: 100%;
+    color: tint(#e45b6c, 20%);
+    text-align: center;
+}
+
+.statistics {
+    display: flex;
+    justify-content: center;
+}
+.statistics .statistic {
+    padding: 0px 20px;
+    min-width: 120px;
+}
+.statistics .statistic:not(:last-child) {
+    box-shadow: 20px 0px 0px -19px rgba(255, 255, 255, 0.2);
+}
+.statistics .statistic-title {
+    font-size: 1.5em;
+}
+.statistics .statistic-value {
+    color: #e45b6c;
+    font-size: 2em;
+}
+.progress {
+    display: flex;
+    background: rgba(212, 95, 27, 0.473);
+    min-height: 12px;
+    overflow: hidden;
+}
+
+.leaderboard {
+    height: 100%;
+    counter-reset: leaderboard-counter;
+}
+.leaderboard dt {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 10px;
+}
+.leaderboard dt:before {
+    content: counter(leaderboard-counter);
+    counter-increment: leaderboard-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.3em;
+    line-height: 0.8;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+}
+.leaderboard dd {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+.leaderboard-value {
+    font-weight: 700;
+}
