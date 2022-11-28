@@ -121,10 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //move down function
   function moveDown() {
-    undraw();
-    currentPosition += width;
-    draw();
-    freeze();
+    if (timeRemaining < 1){
+      gameOver()
+    } else{
+      undraw();
+      currentPosition += width;
+      draw();
+      freeze();
+    }
   }
 
   //freeze function
@@ -146,7 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
       draw();
       displayShape();
       addScore();
-      gameOver();
+      if (tile.some((index) =>squares[currentPosition + index].classList.contains("taken")))
+        gameOver();
     }
   }
 
@@ -288,6 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       draw();
       // speed of the block falling down 1000 = slowest
+      remainingTimeId = setInterval(reduceTime, 1000);
       timerId = setInterval(moveDown, 500);
       nextRandom = Math.floor(Math.random() * theTetrominoes.length);
       displayShape();
@@ -330,16 +336,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //game over
   function gameOver() {
-    if (
-      tile.some((index) =>
-        squares[currentPosition + index].classList.contains("taken")
-      )
-    ) {
-      winOrLose = "GameOver";
-      scoreDisplay.classList.add("color-red");
-      scoreDisplay.innerHTML = "Score: " + score;
+    winOrLose = "GameOver";
+    clearInterval(timerId);
+    clearInterval(remainingTimeId);
+     
+    scoreDisplay.classList.add("color-red");
+    scoreDisplay.innerHTML = "Score: " + score;
 
-      clearInterval(timerId);
-    }
+    // TODO: Handle Game Over page
+  }
+
+  let timeRemaining = 180;
+  const reduceTime = () => {
+    timeRemaining--;
+    $("#timer").text(timeRemaining);
   }
 });
