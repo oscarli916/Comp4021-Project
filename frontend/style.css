@@ -429,3 +429,8 @@ h4 {
 .color-red {
   color: #F00;
 }
+
+.board{
+  display: flex;
+  justify-content: space-evenly;
+}
