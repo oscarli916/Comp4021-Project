@@ -1,197 +1,431 @@
-body{
-	margin:0;
-	color:#6a6f8c;
-	background:#c8c8c8;
-	font:600 16px/18px 'Open Sans',sans-serif;
+body {
+  margin: 0;
+  overflow: hidden;
 }
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
+
+.login-page {
+  color: #6a6f8c;
+  background: #c8c8c8;
+  font: 600 16px/18px 'Open Sans', sans-serif;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box
+}
+
+.clearfix:after,
+.clearfix:before {
+  content: '';
+  display: table
+}
+
+.clearfix:after {
+  clear: both;
+  display: block
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
 
 
 #bgVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
-.login-wrap .login-html #tetris{
-    margin-left: auto;
-	margin-right: auto;
-	display: block;
-    width: 200px;
-    height: 70px;
-	
-} 
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:1080px;
-	min-height:780px;
-	position: relative;
-	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-	font-family: "Press Start 2P";
-}
-.left{
-	width:48%;
-	height:100%;
-	float:left;
-	max-width:1080px;
-	min-height:780px;
-	font-family: "Press Start 2P";	
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-.warning center{
-	color: red;
+.login-wrap .login-html #tetris {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 200px;
+  height: 70px;
+
 }
-.right{
-	height: 100%;
-	margin-left: 52%;
-	max-width:1080px;
-	min-height:780px;
-	font-family: Arial, Helvetica, sans-serif;
-	padding-left: 1ch;
-	color:rgba(255, 255, 255, 0.747);
+
+.login-wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 1080px;
+  min-height: 780px;
+  position: relative;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  font-family: "Press Start 2P";
 }
-.DESINS{
-	color:white; 
-	font-family: "Press Start 2P"; 
-	font-size:15px
+
+.left {
+  width: 48%;
+  height: 100%;
+  float: left;
+  max-width: 1080px;
+  min-height: 780px;
+  font-family: "Press Start 2P";
 }
-#headings{
-    
-    text-align: center;
-    width: 100%;
-	line-height: 2em;
-    font-size: 13px;
-	background:rgba(185, 191, 207, 0);
+
+.warning center {
+  color: red;
 }
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
+
+.right {
+  height: 100%;
+  margin-left: 52%;
+  max-width: 1080px;
+  min-height: 780px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 1ch;
+  color: rgba(255, 255, 255, 0.747);
 }
+
+.DESINS {
+  color: white;
+  font-family: "Press Start 2P";
+  font-size: 15px
+}
+
+#headings {
+
+  text-align: center;
+  width: 100%;
+  line-height: 2em;
+  font-size: 13px;
+  background: rgba(185, 191, 207, 0);
+}
+
+.login-html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: rgba(40, 57, 101, .9);
+}
+
 .login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
+.login-html .sign-up-htm {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: all .4s linear;
 }
+
 .sign-in,
 .sign-up,
-.login-form .group .check{
-	display:none;
+.login-form .group .check {
+  display: none;
 }
+
 .login-html .tab,
 .label,
-.button{
-    padding-top: 10px;
-	text-transform:uppercase;
+.button {
+  padding-top: 10px;
+  text-transform: uppercase;
 }
-.login-html .tab{
-	font-size:15px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
+
+.login-html .tab {
+  font-size: 15px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
 }
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	color:#fff;
-	border-color:#1161ee;
+
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
+  color: #fff;
+  border-color: #1161ee;
 }
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
+
+.login-form {
+  min-height: 345px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
-.login-form .group{
-	margin-bottom:15px;
+
+.login-form .group {
+  margin-bottom: 15px;
 }
+
 .login-form .group .label,
 .login-form .group .input,
-.login-form .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
+.login-form .group .button {
+  width: 100%;
+  color: #fff;
+  display: block;
 }
+
 .login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(238, 224, 224, 0.1);
+.login-form .group .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(238, 224, 224, 0.1);
 }
-.login-form .group input[data-type="password"]{
-	-webkit-text-security:circle;
+
+.login-form .group input[data-type="password"] {
+  -webkit-text-security: circle;
 }
-.login-form .group .label{
-	color:#aaa;
-	font-size:12px;
+
+.login-form .group .label {
+  color: #aaa;
+  font-size: 12px;
 }
-.login-form .group .button{
-	background:#1161ee;
-	font-family: "Press Start 2P";
+
+.login-form .group .button {
+  background: #1161ee;
+  font-family: "Press Start 2P";
 }
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
+
+.login-form .group label .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  background: rgba(255, 255, 255, .1);
 }
+
 .login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
+.login-form .group label .icon:after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  transition: all .2s ease-in-out 0s;
 }
-.login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
+
+.login-form .group label .icon:before {
+  left: 3px;
+  width: 5px;
+  bottom: 6px;
+  transform: scale(0) rotate(0);
 }
-.login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
+
+.login-form .group label .icon:after {
+  top: 6px;
+  right: 0;
+  transform: scale(0) rotate(0);
 }
-.login-form .group .check:checked + label{
-	color:#fff;
+
+.login-form .group .check:checked+label {
+  color: #fff;
 }
-.login-form .group .check:checked + label .icon{
-	background:#1161ee;
+
+.login-form .group .check:checked+label .icon {
+  background: #1161ee;
 }
-.login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
+
+.login-form .group .check:checked+label .icon:before {
+  transform: scale(1) rotate(45deg);
 }
-.login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
+
+.login-form .group .check:checked+label .icon:after {
+  transform: scale(1) rotate(-45deg);
 }
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+  transform: rotate(0);
 }
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+  transform: rotate(0);
 }
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
+
+.hr {
+  height: 2px;
+  margin: 60px 0 50px 0;
+  background: rgba(255, 255, 255, .2);
+}
+
+.game-page {
+  display: none;
+  background: linear-gradient(90deg, rgba(161, 226, 215, 1) 0%, rgba(118, 235, 224, 1) 35%, rgba(110, 213, 233, 1) 100%);
+}
+
+.game-h1 {
+  font-size: 70px;
+  font-family: 'Nabla', cursive;
+  margin: 0%;
+  text-align: center;
+}
+
+h3 {
+  color: #b9b60b;
+  padding-top: 5%;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+h4 {
+  color: #0bb96d;
+  position: relative;
+  text-align: center;
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.custom-btn {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: 500;
+  height: 40px;
+  padding: 10px 25px;
+  position: relative;
+  width: 150px;
+}
+
+.btn-start {
+  background: #b621fe;
+  border: none;
+  z-index: 1;
+}
+
+.btn-start:after {
+  background-color: #663dff;
+  border-radius: 5px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 0.3s ease;
+  width: 0;
+  z-index: -1;
+}
+
+.btn-start:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.btn-start:active {
+  top: 2px;
+}
+
+.score-grid {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+  height: 80px;
+  width: 200px;
+}
+
+.gradient-border {
+  --border-width: 3px;
+  align-items: center;
+  background-color: #222;
+  border-radius: var(--border-width);
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.gradient-border:after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.container {
+  display: flex;
+}
+
+.lines-grid {
+  background-color: rgb(45, 45, 45);
+  margin-bottom: 10px;
+  height: 80px;
+  width: 115px;
+}
+
+.mini-grid {
+  background-color: rgb(44, 44, 42);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 10px 5px;
+  width: 80px;
+  height: 80px;
+}
+
+.mini-grid div {
+  height: 20px;
+  width: 20px;
+}
+
+.grid {
+  background-color: rgb(45, 45, 45);
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+  width: 200px;
+}
+
+.grid div {
+  height: 20px;
+  width: 20px;
+}
+
+.zTetromino {
+  background-image: url(yellow.png);
+  background-size: contain;
+}
+
+.iTetromino {
+  background-image: url(blue.png);
+  background-size: contain;
+}
+
+.oTetromino {
+  background-image: url(green.png);
+  background-size: contain;
+}
+
+.tTetromino {
+  background-image: url(pink.png);
+  background-size: contain;
+}
+
+.lTetromino {
+  background-image: url(orange.png);
+  background-size: contain;
+}
+
+.color-red {
+  color: #F00;
 }
