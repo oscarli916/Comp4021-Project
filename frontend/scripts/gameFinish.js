@@ -1,5 +1,5 @@
 
-const gameOver = () => {
+const gameFinish = () => {
     fetch('statistic.json')
         .then(res => res.json())
         .then((res) => {

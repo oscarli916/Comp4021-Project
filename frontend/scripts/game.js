@@ -121,9 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //move down function
   function moveDown() {
-    if (timeRemaining < 1){
-      gameOver()
-    } else{
+    if (timeRemaining < 1) {
+      gameOver();
+    } else {
       undraw();
       currentPosition += width;
       draw();
@@ -150,7 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
       draw();
       displayShape();
       addScore();
-      if (tile.some((index) =>squares[currentPosition + index].classList.contains("taken")))
+      if (
+        tile.some((index) =>
+          squares[currentPosition + index].classList.contains("taken")
+        )
+      )
         gameOver();
     }
   }
@@ -339,17 +343,19 @@ document.addEventListener("DOMContentLoaded", () => {
     winOrLose = "GameOver";
     clearInterval(timerId);
     clearInterval(remainingTimeId);
-     
+
     scoreDisplay.classList.add("color-red");
     scoreDisplay.innerHTML = "Score: " + score;
 
-    $(".game-page").hide()
-    $(".gameover-page").show()
+    $(".game-page").hide();
+    $(".gameover-page").show();
+
+    gameFinish();
   }
 
   let timeRemaining = 180;
   const reduceTime = () => {
     timeRemaining--;
     $("#timer").text(timeRemaining);
-  }
+  };
 });
