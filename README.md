@@ -68,7 +68,7 @@
 
     3. Success:
 
-        `{ status: "success", message: "successfully logged in" }`
+        `{ status: "success", message: "successfully logged in", user: { name: "oscar", username: "oscar916"} }`
 
 ## Running the server:
 ```

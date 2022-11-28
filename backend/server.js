@@ -64,7 +64,11 @@ app.post("/signin", (req, res) => {
     return;
   }
 
-  res.json({ status: "success", message: "successfully logged in" });
+  res.json({
+    status: "success",
+    message: "successfully logged in",
+    user: { name: users[username]["name"], username: username },
+  });
 });
 
 app.listen(8000, () => {
