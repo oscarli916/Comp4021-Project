@@ -343,7 +343,8 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreDisplay.classList.add("color-red");
     scoreDisplay.innerHTML = "Score: " + score;
 
-    // TODO: Handle Game Over page
+    $(".game-page").hide()
+    $(".gameover-page").show()
   }
 
   let timeRemaining = 180;
