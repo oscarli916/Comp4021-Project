@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreDisplay.innerHTML = "Score: " + score;
 
     $(".game-page").hide();
-    $(".gameover-page").show();
+    $(".gameover-page").css("display", "flex");
 
     gameFinish();
   }

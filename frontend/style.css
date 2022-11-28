@@ -446,7 +446,6 @@ a {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   background: #f3f7f6;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
