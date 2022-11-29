@@ -1,21 +1,58 @@
+const updateRanking = function (username, score) {
+    const json = JSON.stringify({ username, score });
+
+    fetch("/ranking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: json,
+    })
+        .then((res) => res.json())
+        .then((json) => {
+            if (json.status == "error") {
+                if (onError) onError(json.error);
+            } else {
+                if (onSuccess) onSuccess();
+            }
+        })
+        .catch((err) => {
+            console.log("Errorrrr!");
+        });
+};
 
 const gameFinish = () => {
-    fetch('statistic.json')
+    const line_left = document.getElementById('line-left').innerHTML;
+    const line_right = document.getElementById('line-right').innerHTML;
+
+    const score = line_left * 10;
+
+    const player_username = document.getElementById('name-left').innerHTML;
+    const opponent_username = document.getElementById('name-right').innerHTML;
+
+    document.getElementById('user').innerHTML = player_username;
+    document.getElementById('opponent').innerHTML = opponent_username;
+
+    updateRanking(player_username, score);
+
+    if (line_left < line_right) {
+        document.getElementById('result').innerHTML = "You lost...";//lose
+    }
+    if (line_left == line_right) {
+        document.getElementById('result').innerHTML = "It's a DRAW!"//draw
+    }
+    //lines and scores 
+    document.getElementById('score').innerHTML = line_left * 10;
+    document.getElementById('lines').innerHTML = line_left;
+
+    fetch('/ranking')
         .then(res => res.json())
         .then((res) => {
 
-            console.log("next");
+            res = res.data;
             res.sort((a, b) => Number(a.score) - Number(b.score));
-            
-            
-            var secondbar = (res[3].score/res[4].score)*100;
-            var thirdbar = (res[2].score/res[4].score)*100;
-            var fourthbar = (res[1].score/res[4].score)*100;
-            var fifthbar = (res[0].score/res[4].score)*100;
-            console.log(secondbar);
-            console.log(thirdbar);
-            console.log(fourthbar);
-            console.log(fifthbar);
+            const secondbar = (res[3].score / res[4].score) * 100;
+            const thirdbar = (res[2].score / res[4].score) * 100;
+            const fourthbar = (res[1].score / res[4].score) * 100;
+            const fifthbar = (res[0].score / res[4].score) * 100;
 
             document.getElementById('firstleader-name').innerHTML = res[4].username;
             document.getElementById('firstleader-score').innerHTML = res[4].score;

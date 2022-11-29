@@ -13,6 +13,9 @@ const Authentication = (function () {
           if (onError) onError(json.error);
         } else {
           user = json.user;
+          document.getElementById('name-left').innerHTML = user.name;
+          document.getElementById('username-left').innerHTML = user.username;
+          
           if (onSuccess) onSuccess();
         }
       })
