@@ -103,21 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
         moveRight();
       } else if (e.keyCode === 40) {
         moveDown();
-      } else if (e.keyCode === 32) {
-        cheat();
       }
     }
   }
   document.addEventListener("keydown", control);
 
-  function release(e) {
-    if (winOrLose != "GameOver") {
+  function onCheatHandler(e) {
+    if (winOrLose === "Playing") {
       if (e.keyCode === 32) {
-        cheated();
+        cheating();
       }
     }
   }
-  document.addEventListener("keyup", release);
+  document.addEventListener("keyup", onCheatHandler);
 
   //move down function
   function moveDown() {
@@ -159,20 +157,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function cheat() {
-    if (timerId) {
-      clearInterval(timerId);
-      timerId = null;
+  const cheating = () => {
+    if (isPaused === true) {
+      isPaused = false;
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+      timerId = setInterval(moveDown, 500);
+    } else {
+      isPaused = true;
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+      timerId = setInterval(moveDown, 5000);
     }
-    timerId = setInterval(moveDown, 5000);
-  }
-  function cheated() {
-    if (timerId) {
-      clearInterval(timerId);
-      timerId = null;
-    }
-    timerId = setInterval(moveDown, 500);
-  }
+  };
 
   //move the tetromino left, unless is at the edge or there is a blockage
   function moveLeft() {
@@ -295,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(timerId);
       timerId = null;
     } else {
-      winOrLose = "Playing"
+      winOrLose = "Playing";
       draw();
       // speed of the block falling down 1000 = slowest
       remainingTimeId = setInterval(reduceTime, 1000);
