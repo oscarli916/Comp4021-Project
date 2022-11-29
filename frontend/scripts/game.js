@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let nextRandom = 0;
   let timerId;
   let score = 0;
-  let winOrLose = "Playing";
+  let winOrLose = "Waiting";
   let isPaused = false;
 
   //The Tetrominoes
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //assign functions to keyCodes
   function control(e) {
-    if (winOrLose != "GameOver") {
+    if (winOrLose === "Playing") {
       if (e.keyCode === 37) {
         moveLeft();
       } else if (e.keyCode === 38) {
@@ -295,6 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(timerId);
       timerId = null;
     } else {
+      winOrLose = "Playing"
       draw();
       // speed of the block falling down 1000 = slowest
       remainingTimeId = setInterval(reduceTime, 1000);
