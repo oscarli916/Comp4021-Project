@@ -1,22 +1,22 @@
 [
  {
-  "username": "Ham",
-  "score": 1500
+  "username": "ham",
+  "score": 500
  },
  {
-  "username": "Oscar",
-  "score": 2700
+  "username": "oscar",
+  "score": 100
  },
  {
-  "username": "Oscar",
-  "score": 1700
+  "username": "kelvin",
+  "score": 50
  },
  {
-  "username": "oscar916",
-  "score": 5000
+  "username": "peter",
+  "score": 40
  },
  {
-  "username": "Ham2",
-  "score": 2000
+  "username": "tom",
+  "score": 20
  }
 ]

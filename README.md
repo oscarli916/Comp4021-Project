@@ -1,5 +1,12 @@
 # COMP4021 Project
 
+## Installation
+
+```
+1. run npm install
+2. run npm start OR node ./backend/server.js
+```
+
 ## Backend API Endpoints:
 
 - /register
