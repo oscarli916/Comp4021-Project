@@ -649,13 +649,14 @@ h2 {
 .round-time-bar div {
   width: 200px;
   height: 20px;
-  margin: 0rem;
+  margin-bottom: 5px;
   overflow: hidden;
   animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))forwards;
   transform-origin: left center;
   background: linear-gradient(.25turn, red, 20%, green);
   display: flex;
   flex-wrap: wrap;
+  border: 2px solid black;
 }
 
 .round-time-bar[data-style="smooth"] div {

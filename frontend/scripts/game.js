@@ -345,6 +345,7 @@ const Game = (function () {
 
   const gameStart = () => {
     document.getElementById("round-time-bar-left").style = "--duration: 180";
+    document.getElementById("round-time-bar-right").style = "--duration: 180";
     const bars = document.querySelectorAll(".round-time-bar");
     bars.forEach((bar) => {
       bar.classList.remove("round-time-bar");
