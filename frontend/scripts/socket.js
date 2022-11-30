@@ -6,6 +6,13 @@ const Socket = (function () {
 
     socket.on("waiting", () => {
       $("#waitingModal").show();
+      window.setInterval( function() {
+        let wait = document.getElementById("waitingModals");
+        if ( wait.innerHTML.length > 28 ) 
+            wait.innerHTML = "Waiting for other players";
+        else 
+            wait.innerHTML += ".";
+        }, 800);
     });
 
     socket.on("game start", (users) => {
