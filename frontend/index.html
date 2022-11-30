@@ -154,10 +154,12 @@
     <script src="scripts/authentication.js"></script>
     <script src="scripts/game.js"></script>
     <script src="scripts/socket.js"></script>
+    <script src="scripts/sprite.js"></script>
     <script src="/socket.io/socket.io.min.js"></script>
     <script>
-      $(document).ready(function () {
-        Game.initialize();
+        $(document).ready(function () {
+            Game.initialize();
+            Sprite.initialize();
 
         $("#sign-in-form").on("submit", (e) => {
           // Do not submit the form
@@ -238,22 +240,18 @@
     <div class="game-page">
       <h1 class="game-h1">T e t r i s</h1>
 
-      <div class="board">
-        <div class="board-left">
-          <div
-            class="round-time-bar"
-            id="round-time-bar-left"
-            data-style="smooth"
-          >
-            <div></div>
-          </div>
-          <div id="name-left" style="display: none"></div>
-          <div class="score-grid gradient-border">
-            <h3 class="game-h3">
-              <div id="username-left"></div>
-              <span id="score-left">Score: 0</span>
-            </h3>
-          </div>
+        <div class="board">
+            <div class="board-left">
+                <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
+                </div>
+                
+                <div id="name-left" style="display: none;"></div>
+                <div class="score-grid gradient-border">
+                    <h3 class="game-h3">
+                        <div id="username-left"></div>
+                        <span id="score-left">Score: 0</span>
+                    </h3>
+                </div>
 
           <div class="container">
             <div class="lines-grid">
@@ -496,7 +494,10 @@
           </div>
         </div>
 
-        <button class="custom-btn btn-start" id="start-button">Start</button>
+        <div style="display: flex; flex-direction: column;">
+            <button class="custom-btn btn-start" id="start-button" style="margin-bottom: 100px">Start</button>
+            <canvas width="200" height="40"></canvas>
+        </div>
 
         <div class="board-right">
           <div class="score-grid gradient-border">
