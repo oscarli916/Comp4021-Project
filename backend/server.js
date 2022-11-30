@@ -92,6 +92,13 @@ app.post("/signin", (req, res) => {
   });
 });
 
+app.get("/validate", (req, res) => {
+  const user = req.session.user;
+
+  if (user) res.json({ status: "success", user: user });
+  else res.json({ status: "error", error: "not validated" });
+});
+
 app.get("/ranking", (req, res) => {
   const ranking = JSON.parse(fs.readFileSync(RANKING_PATH));
 
@@ -158,6 +165,7 @@ io.on("connection", (socket) => {
 
   socket.on("send game over", () => {
     if (socket.request.session.user) io.emit("game over");
+    onlineUsers = [];
   });
 });
 

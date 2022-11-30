@@ -594,7 +594,6 @@ h2 {
 }
 
 .leaderboard {
-  height: 100%;
   counter-reset: leaderboard-counter;
 }
 
@@ -643,6 +642,7 @@ h2 {
   width: 80%;
   height: 60%;
 }
+
 .round-time-bar div {
   width: 200px;
   height: 20px;

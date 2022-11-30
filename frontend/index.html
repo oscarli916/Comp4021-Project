@@ -1,119 +1,153 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>COMP4021 Project</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Play" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Montserrat&family=Nabla&family=Press+Start+2P&display=swap"
-        rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Play"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Montserrat&family=Nabla&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
     <video autoplay muted loop id="bgVideo">
-        <source src="tetris-bg.mp4" type="video/mp4">
+      <source src="tetris-bg.mp4" type="video/mp4" />
     </video>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="login-page">
-        <div class="login-wrap">
-            <div class="login-html">
-                <img id="tetris" src="tetris-logo.png" alt="TETRIS">
-                <div id="headings">
-                    <h1>Welcome to Tetris Battle!</h1>
-                </div>
+      <div class="login-wrap">
+        <div class="login-html">
+          <img id="tetris" src="tetris-logo.png" alt="TETRIS" />
+          <div id="headings">
+            <h1>Welcome to Tetris Battle!</h1>
+          </div>
 
-                <hr>
-                <div class="left">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
-                        class="tab">Sign In</label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign
-                        Up</label>
-                    <div class="login-form">
-                        <div class="sign-in-htm">
-                            <form id="sign-in-form">
-                                <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="sign-in-user" type="text" class="input">
-                                </div>
-                                <div class="group">
-                                    <label for="pass" class="label">Password</label>
-                                    <input id="sign-in-pass" type="password" class="input" data-type="password">
-                                </div>
+          <hr />
+          <div class="left">
+            <input
+              id="tab-1"
+              type="radio"
+              name="tab"
+              class="sign-in"
+              checked
+            /><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
+              for="tab-2"
+              class="tab"
+              >Sign Up</label
+            >
+            <div class="login-form">
+              <div class="sign-in-htm">
+                <form id="sign-in-form">
+                  <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="sign-in-user" type="text" class="input" />
+                  </div>
+                  <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input
+                      id="sign-in-pass"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                    />
+                  </div>
 
-                                <div class="group">
-                                    <input type="submit" class="button" value="Sign In">
-                                </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="Sign In" />
+                  </div>
 
-                                <div id="sign-in-message" style="color : red" class="warning center"></div>
-                            </form>
-                        </div>
-                        <div class="sign-up-htm">
-                            <form id="sign-up-form">
-                                <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="sign-up-user" type="text" class="input">
-                                </div>
-                                <div class="group">
-                                    <label for="name" class="label">Name</label>
-                                    <input id="sign-up-name" type="text" class="input">
-                                </div>
-                                <div class="group">
-                                    <label for="pass" class="label">Password</label>
-                                    <input id="sign-up-pass" type="password" class="input" data-type="password">
-                                </div>
-                                <div class="group">
-                                    <input type="submit" class="button" value="Sign Up">
-                                </div>
+                  <div
+                    id="sign-in-message"
+                    style="color: red"
+                    class="warning center"
+                  ></div>
+                </form>
+              </div>
+              <div class="sign-up-htm">
+                <form id="sign-up-form">
+                  <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="sign-up-user" type="text" class="input" />
+                  </div>
+                  <div class="group">
+                    <label for="name" class="label">Name</label>
+                    <input id="sign-up-name" type="text" class="input" />
+                  </div>
+                  <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input
+                      id="sign-up-pass"
+                      type="password"
+                      class="input"
+                      data-type="password"
+                    />
+                  </div>
+                  <div class="group">
+                    <input type="submit" class="button" value="Sign Up" />
+                  </div>
 
-                                <div id="register-message" style="color : red" class="warning center"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="right">
-                    <p class="DESINS">DESCRIPTION:</p>
-                    <p style="font-size:16px">You will pair up with another player!</p>
-                    <p style="font-size:16px">Get higher score to win the game!</p>
-                    <hr>
-                    <br>
-                    <p class="DESINS">INSTRUCTION:</p>
-                    <p style="font-size:16px">Duration: 180s</p>
-                    <table border="1" width=105% cellpadding="5" cellspacing="5">
-                        <tr>
-                            <th>Action</th>
-                            <th>Key</th>
-                        </tr>
-                        <tr>
-                            <td>Move Left</td>
-                            <td>Left Arrow</td>
-                        </tr>
-                        <tr>
-                            <td>Move Right</td>
-                            <td>Right Arrow</td>
-                        </tr>
-                        <tr>
-                            <td>Rotate(clockwise)</td>
-                            <td>Up Arrow</td>
-                        </tr>
-                        <tr>
-                            <td>Soft Drop</td>
-                            <td>Down Arrow</td>
-                        </tr>
-                        <tr>
-                            <td>Cheat(stop)</td>
-                            <td>Press spacebar</td>
-                        </tr>
-                    </table>
-
-
-                </div>
+                  <div
+                    id="register-message"
+                    style="color: red"
+                    class="warning center"
+                  ></div>
+                </form>
+              </div>
             </div>
+          </div>
+
+          <div class="right">
+            <p class="DESINS">DESCRIPTION:</p>
+            <p style="font-size: 16px">You will pair up with another player!</p>
+            <p style="font-size: 16px">Get higher score to win the game!</p>
+            <hr />
+            <br />
+            <p class="DESINS">INSTRUCTION:</p>
+            <p style="font-size: 16px">Duration: 180s</p>
+            <table border="1" width="105%" cellpadding="5" cellspacing="5">
+              <tr>
+                <th>Action</th>
+                <th>Key</th>
+              </tr>
+              <tr>
+                <td>Move Left</td>
+                <td>Left Arrow</td>
+              </tr>
+              <tr>
+                <td>Move Right</td>
+                <td>Right Arrow</td>
+              </tr>
+              <tr>
+                <td>Rotate(clockwise)</td>
+                <td>Up Arrow</td>
+              </tr>
+              <tr>
+                <td>Soft Drop</td>
+                <td>Down Arrow</td>
+              </tr>
+              <tr>
+                <td>Cheat(stop)</td>
+                <td>Press spacebar</td>
+              </tr>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="scripts/registration.js"></script>
@@ -122,703 +156,688 @@
     <script src="scripts/socket.js"></script>
     <script src="/socket.io/socket.io.min.js"></script>
     <script>
-        $(document).ready(function () {
-            Game.initialize();
+      $(document).ready(function () {
+        Game.initialize();
 
-            /* Create the sounds */
-            const sounds = {
-                signin: new Audio("signin.mp3"),
-                background: new Audio("bg.mp3"),
-                clear: new Audio("lineCleared.mp3"),
-                gameover: new Audio("GameOver.mp3"),
-            };
+        $("#sign-in-form").on("submit", (e) => {
+          // Do not submit the form
+          e.preventDefault();
 
-            $("#sign-in-form").on("submit", (e) => {
-                // Do not submit the form
-                e.preventDefault();
+          // Get the input fields
+          const username = $("#sign-in-user").val().trim();
+          const password = $("#sign-in-pass").val().trim();
 
-                // Get the input fields
-                const username = $("#sign-in-user").val().trim();
-                const password = $("#sign-in-pass").val().trim();
-
-                // Send a signin request
-                Authentication.signin(username, password,
-                    () => {
-                        $(".login-page").hide();
-                        $("#bgVideo").hide();
-                        $(".game-page").show();
-                        Socket.connect();
-                    },
-                    (error) => { $("#sign-in-message").text(error); }
-                );
-            });
-
-            // Submit event for the register form
-            $("#sign-up-form").on("submit", (e) => {
-                // Do not submit the form
-                e.preventDefault();
-
-                // Get the input fields
-                const username = $("#sign-up-user").val().trim();
-                const name = $("#sign-up-name").val().trim();
-                const password = $("#sign-up-pass").val().trim();
-
-                // Send a register request
-                Registration.register(username, name, password,
-                    () => {
-                        $("#sign-up-form").get(0).reset();
-                        $("#register-message").text("You can sign in now.");
-                    },
-                    (error) => { $("#register-message").text(error); }
-                );
-            });
-
-            $("#start-button").on("click", () => {
-                Socket.join();
-                $("#start-button").prop("disabled", true)
-            })
+          // Send a signin request
+          Authentication.signin(
+            username,
+            password,
+            () => {
+              $(".login-page").hide();
+              $("#bgVideo").hide();
+              $(".game-page").show();
+              Socket.connect();
+            },
+            (error) => {
+              $("#sign-in-message").text(error);
+            }
+          );
         });
+
+        // Submit event for the register form
+        $("#sign-up-form").on("submit", (e) => {
+          // Do not submit the form
+          e.preventDefault();
+
+          // Get the input fields
+          const username = $("#sign-up-user").val().trim();
+          const name = $("#sign-up-name").val().trim();
+          const password = $("#sign-up-pass").val().trim();
+
+          // Send a register request
+          Registration.register(
+            username,
+            name,
+            password,
+            () => {
+              $("#sign-up-form").get(0).reset();
+              $("#register-message").text("You can sign in now.");
+            },
+            (error) => {
+              $("#register-message").text(error);
+            }
+          );
+        });
+
+        $("#start-button").on("click", () => {
+          Socket.join();
+          $("#start-button").prop("disabled", true);
+        });
+
+        $("#restart-btn").on("click", () => {
+          window.location.reload();
+        });
+
+        Authentication.validate(
+          () => {
+            $(".login-page").hide();
+            $("#bgVideo").hide();
+            $(".game-page").show();
+            Socket.connect();
+          },
+          () => {}
+        );
+      });
     </script>
 
     <div id="waitingModal" class="modal">
-
-        <div class="modal-content">
-            <h1>Waiting for other players to connect ...</h1>
-        </div>
-
+      <div class="modal-content">
+        <h1>Waiting for other players to connect ...</h1>
+      </div>
     </div>
 
     <div class="game-page">
-        <h1 class="game-h1">T e t r i s</h1>
+      <h1 class="game-h1">T e t r i s</h1>
 
-        <div class="board">
-            <div class="board-left">
-                <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
-                    <div></div>
-                </div>
-                <div id="name-left" style="display: none;"></div>
-                <div class="score-grid gradient-border">
-                    <h3 class="game-h3">
-                        <div id="username-left"></div>
-                        <span id="score-left">Score: 0</span>
-                    </h3>
-                </div>
+      <div class="board">
+        <div class="board-left">
+          <div
+            class="round-time-bar"
+            id="round-time-bar-left"
+            data-style="smooth"
+          >
+            <div></div>
+          </div>
+          <div id="name-left" style="display: none"></div>
+          <div class="score-grid gradient-border">
+            <h3 class="game-h3">
+              <div id="username-left"></div>
+              <span id="score-left">Score: 0</span>
+            </h3>
+          </div>
 
-                <div class="container">
-                    <div class="lines-grid">
-                        <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
-                        <h4 class="game-h4">Lines: <span id="line-left">0</span></h4>
-                    </div>
-                    <div class="mini-grid current-mini">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-
-                </div>
-
-                <div class="container">
-
-                    <div class="grid current gradient-border">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                    </div>
-
-                </div>
+          <div class="container">
+            <div class="lines-grid">
+              <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
+              <h4 class="game-h4">Lines: <span id="line-left">0</span></h4>
             </div>
-
-            <button class="custom-btn btn-start" id="start-button">Start</button>
-
-            <div class="board-right">
-                <div class="score-grid gradient-border">
-                    <div id="name-right" style="display: none;"></div>
-                    <h3 class="game-h3">
-                        <div id="username-right"></div>
-                        <span id="score-right">Score: 0</span>
-                    </h3>
-                </div>
-
-                <div class="container">
-                    <div class="lines-grid">
-                        <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
-                        <h4 class="game-h4">Lines: <span id="line-right">0</span></h4>
-                    </div>
-                    <div class="mini-grid opponent-mini">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-
-                </div>
-
-                <div class="container">
-
-                    <div class="grid opponent gradient-border">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                        <div class="taken"></div>
-                    </div>
-
-                </div>
+            <div class="mini-grid current-mini">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
+          </div>
+
+          <div class="container">
+            <div class="grid current gradient-border">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+            </div>
+          </div>
         </div>
 
+        <button class="custom-btn btn-start" id="start-button">Start</button>
+
+        <div class="board-right">
+          <div class="score-grid gradient-border">
+            <div id="name-right" style="display: none"></div>
+            <h3 class="game-h3">
+              <div id="username-right"></div>
+              <span id="score-right">Score: 0</span>
+            </h3>
+          </div>
+
+          <div class="container">
+            <div class="lines-grid">
+              <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
+              <h4 class="game-h4">Lines: <span id="line-right">0</span></h4>
+            </div>
+            <div class="mini-grid opponent-mini">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="grid opponent gradient-border">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+              <div class="taken"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
     <div class="gameover-page">
-        <div class="card">
-            <section class="card-info card-section">
+      <div class="card">
+        <section class="card-info card-section">
+          <section class="user row">
+            <h1 class="user-header" id="user"></h1>
+          </section>
+          <h1>VS</h1>
 
-                <section class="user row">
-                    <h1 class="user-header" id="user">
-                        Bryan Smith
-                    </h1>
-                </section>
-                <h1>VS</h1>
+          <div>
+            <h1 id="opponent"></h1>
+          </div>
+          <hr />
+          <div>
+            <h1 id="result"></h1>
+          </div>
 
-                <div>
-                    <h1 id="opponent">Opponent's NAME</h1>
-                </div>
-                <hr>
-                <div>
-                    <h1 id="result">YOU WON!</h1>
-                </div>
+          <section class="statistics">
+            <article class="statistic">
+              <h4 class="statistic-title">Cleared</h4>
+              <h3 class="statistic-value" id="lines"></h3>
+              <h4 class="statistic-title">Lines</h4>
+            </article>
+          </section>
 
-                <section class="statistics">
+          <div class="dial">
+            <h1 class="dial-title">SCORE</h1>
+            <h2 class="dial-value" id="score"></h2>
+          </div>
+          <div style="font-size: 30px">
+            <span style="color: #ff0000">T</span>
+            <span style="color: #f7a102">E</span>
+            <span style="color: #f5f82a">T</span>
+            <span style="color: #73fc24">R</span>
+            <span style="color: #00e1ff">I</span>
+            <span style="color: #ea00ff">S</span>
+          </div>
+        </section>
 
+        <section class="card-details card-section">
+          <h1 class="menu" style="color: black">Leaderboard</h1>
 
-                    <article class="statistic">
-                        <h4 class="statistic-title">
-                            Cleared
-                        </h4>
-                        <h3 class="statistic-value" id="lines">
-                            6
-                        </h3>
-                        <h4 class="statistic-title">
-                            Lines
-                        </h4>
-                    </article>
+          <dl class="leaderboard">
+            <dt>
+              <article
+                class="progress"
+                id="firstleader-bar"
+                style="width: 100%"
+              ></article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" id="firstleader-name"></div>
+              <div class="leaderboard-value" id="firstleader-score"></div>
+            </dd>
+            <dt>
+              <article class="progress" id="secondleader-bar"></article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" id="secondleader-name"></div>
+              <div class="leaderboard-value" id="secondleader-score"></div>
+            </dd>
+            <dt>
+              <article class="progress" id="thirdleader-bar"></article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" id="thirdleader-name"></div>
+              <div class="leaderboard-value" id="thirdleader-score"></div>
+            </dd>
+            <dt>
+              <article class="progress" id="fourthleader-bar"></article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" id="fourthleader-name"></div>
+              <div class="leaderboard-value" id="fourthleader-score"></div>
+            </dd>
+            <dt>
+              <article class="progress" id="fifthleader-bar"></article>
+            </dt>
+            <dd>
+              <div class="leaderboard-name" id="fifthleader-name"></div>
+              <div class="leaderboard-value" id="fifthleader-score"></div>
+            </dd>
+          </dl>
 
-                </section>
-
-                <div class="dial">
-                    <h1 class="dial-title">
-                        SCORE
-                    </h1>
-                    <h2 class="dial-value" id="score">
-                        3500
-                    </h2>
-
-                </div>
-                <div style="font-size: 30px">
-                    <span style="color:#FF0000">T</span>
-                    <span style="color:#f7a102">E</span>
-                    <span style="color:#f5f82a">T</span>
-                    <span style="color:#73fc24">R</span>
-                    <span style="color:#00e1ff">I</span>
-                    <span style="color:#ea00ff">S</span>
-                </div>
-
-            </section>
-
-            <section class="card-details card-section">
-
-                <h1 class="menu" style="color: black">
-                    Leaderboard
-                </h1>
-
-                <dl class="leaderboard">
-                    <dt>
-                        <article class="progress" id="firstleader-bar" style="width: 100%">
-                        </article>
-                    </dt>
-                    <dd>
-                        <div class="leaderboard-name" id="firstleader-name"></div>
-                        <div class="leaderboard-value" id="firstleader-score"></div>
-                    </dd>
-                    <dt>
-                        <article class="progress" id="secondleader-bar">
-                        </article>
-                    </dt>
-                    <dd>
-                        <div class="leaderboard-name" id="secondleader-name"></div>
-                        <div class="leaderboard-value" id="secondleader-score"></div>
-                    </dd>
-                    <dt>
-                        <article class="progress" id="thirdleader-bar">
-
-                        </article>
-                    </dt>
-                    <dd>
-                        <div class="leaderboard-name" id="thirdleader-name"></div>
-                        <div class="leaderboard-value" id="thirdleader-score"></div>
-                    </dd>
-                    <dt>
-                        <article class="progress" id="fourthleader-bar">
-
-                        </article>
-                    </dt>
-                    <dd>
-                        <div class="leaderboard-name" id="fourthleader-name"></div>
-                        <div class="leaderboard-value" id="fourthleader-score"></div>
-                    </dd>
-                    <dt>
-                        <article class="progress" id="fifthleader-bar">
-
-                        </article>
-                    </dt>
-                    <dd>
-                        <div class="leaderboard-name" id="fifthleader-name"></div>
-                        <div class="leaderboard-value" id="fifthleader-score"></div>
-                    </dd>
-                </dl>
-            </section>
-        </div>
+          <button class="custom-btn btn-start" id="restart-btn">Restart</button>
+        </section>
+      </div>
     </div>
 
     <script src="scripts/gameFinish.js"></script>
-</body>
-
+  </body>
 </html>
