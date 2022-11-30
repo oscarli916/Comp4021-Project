@@ -172,6 +172,11 @@
                     (error) => { $("#register-message").text(error); }
                 );
             });
+
+            $("#start-button").on("click", () => {
+                Socket.join();
+                $("#start-button").prop("disabled", true)
+            })
         });
     </script>
 
@@ -188,7 +193,6 @@
 
         <div class="board">
             <div class="board-left">
-                <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
                 <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
                     <div></div>
                 </div>
@@ -444,9 +448,9 @@
                 </div>
             </div>
 
-            <div class="board-right">
-                <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
+            <button class="custom-btn btn-start" id="start-button">Start</button>
 
+            <div class="board-right">
                 <div class="score-grid gradient-border">
                     <div id="name-right" style="display: none;"></div>
                     <h3 class="game-h3">

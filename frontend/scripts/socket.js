@@ -37,6 +37,10 @@ const Socket = (function () {
     socket = null;
   };
 
+  const join = () => {
+    if (socket && socket.connected) socket.emit("join");
+  };
+
   const sendBoard = (board, score, miniBoard) => {
     if (socket && socket.connected)
       socket.emit(
@@ -49,5 +53,5 @@ const Socket = (function () {
     if (socket && socket.connected) socket.emit("send game over");
   };
 
-  return { connect, disconnect, sendBoard, sendGameOver };
+  return { connect, disconnect, sendBoard, sendGameOver, join };
 })();

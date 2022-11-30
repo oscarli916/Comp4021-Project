@@ -14,7 +14,6 @@ const Game = (function () {
   let winOrLose = "Waiting";
   let isPaused = false;
 
-  /* Create the sounds */
   const sounds = {
     signin: new Audio("signin.mp3"),
     background: new Audio("bg.mp3"),
@@ -359,8 +358,8 @@ const Game = (function () {
       timerId = null;
     } else {
       winOrLose = "Playing"
-      sounds.signin.pause();
-      sounds.background.play();
+      // sounds.signin.pause();
+      // sounds.background.play();
       draw();
       // speed of the block falling down 1000 = slowest
       remainingTimeId = setInterval(reduceTime, 1000);
@@ -388,8 +387,8 @@ const Game = (function () {
 
       if (row.every((index) => squares[index].classList.contains("taken"))) {
         score += 10;
-        sounds.clear.currentTime = 0;
-        sounds.clear.play();
+        // sounds.clear.currentTime = 0;
+        // sounds.clear.play();
         scoreDisplay.innerHTML = "Score:" + score;
         lineDisplay.innerHTML = score / 10;
         row.forEach((index) => {
@@ -409,8 +408,8 @@ const Game = (function () {
   //game over
   function gameOver() {
     winOrLose = "GameOver";
-    sounds.background.pause();
-    sounds.gameover.play();
+    // sounds.background.pause();
+    // sounds.gameover.play();
     clearInterval(timerId);
     clearInterval(remainingTimeId);
 

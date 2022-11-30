@@ -128,16 +128,18 @@ app.post("/ranking", (req, res) => {
 let onlineUsers = [];
 
 io.on("connection", (socket) => {
-  if (socket.request.session.user) {
-    const user = socket.request.session.user;
-    onlineUsers.push(user);
+  socket.on("join", () => {
+    if (socket.request.session.user) {
+      const user = socket.request.session.user;
+      onlineUsers.push(user);
 
-    if (onlineUsers.length === 1) {
-      socket.emit("waiting");
-    } else if (onlineUsers.length === 2) {
-      io.emit("game start", JSON.stringify(onlineUsers));
+      if (onlineUsers.length === 1) {
+        socket.emit("waiting");
+      } else if (onlineUsers.length === 2) {
+        io.emit("game start", JSON.stringify(onlineUsers));
+      }
     }
-  }
+  });
 
   socket.on("send board", (content) => {
     if (socket.request.session.user) {
