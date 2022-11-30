@@ -22,6 +22,17 @@ const Game = (function () {
     lineDisplay = document.querySelector("#line-left");
     displaySquares = document.querySelectorAll(".current-mini div");
     opponentDisplaySquares = document.querySelectorAll(".opponent-mini div");
+
+    /* Create the sounds */
+    const sounds = {
+      signin: new Audio("signin.mp3"),
+      background: new Audio("bg.mp3"),
+      clear: new Audio("lineCleared.mp3"),
+      gameover: new Audio("GameOver.mp3"),
+    };
+    sounds.background.loop = true;
+    sounds.signin.loop = true;
+    sounds.gameover.loop = true;
   };
 
   //The Tetrominoes
@@ -335,11 +346,21 @@ const Game = (function () {
   }
 
   const gameStart = () => {
+    document.getElementById("round-time-bar-left").style = "--duration: 300";
+    const bars = document.querySelectorAll(".round-time-bar");
+    bars.forEach((bar) => {
+      bar.classList.remove("round-time-bar");
+      bar.offsetWidth;
+      bar.classList.add("round-time-bar");
+    });
+    
     if (timerId) {
       clearInterval(timerId);
       timerId = null;
     } else {
-      winOrLose = "Playing";
+      winOrLose = "Playing"
+      sounds.signin.pause();
+      sounds.background.play();
       draw();
       // speed of the block falling down 1000 = slowest
       remainingTimeId = setInterval(reduceTime, 1000);
@@ -367,6 +388,8 @@ const Game = (function () {
 
       if (row.every((index) => squares[index].classList.contains("taken"))) {
         score += 10;
+        sounds.clear.currentTime = 0;
+        sounds.clear.play();
         scoreDisplay.innerHTML = "Score:" + score;
         lineDisplay.innerHTML = score / 10;
         row.forEach((index) => {
@@ -386,6 +409,8 @@ const Game = (function () {
   //game over
   function gameOver() {
     winOrLose = "GameOver";
+    sounds.background.pause();
+    sounds.gameover.play();
     clearInterval(timerId);
     clearInterval(remainingTimeId);
 

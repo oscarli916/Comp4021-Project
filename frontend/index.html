@@ -125,6 +125,14 @@
         $(document).ready(function () {
             Game.initialize();
 
+            /* Create the sounds */
+            const sounds = {
+                signin: new Audio("signin.mp3"),
+                background: new Audio("bg.mp3"),
+                clear: new Audio("lineCleared.mp3"),
+                gameover: new Audio("GameOver.mp3"),
+            };
+
             $("#sign-in-form").on("submit", (e) => {
                 // Do not submit the form
                 e.preventDefault();
@@ -181,6 +189,9 @@
         <div class="board">
             <div class="board-left">
                 <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
+                <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
+                    <div></div>
+                </div>
                 <div id="name-left" style="display: none;"></div>
                 <div class="score-grid gradient-border">
                     <h3 class="game-h3">
