@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let nextRandom = 0;
   let timerId;
   let score = 0;
-  let winOrLose = "Playing";
+  let winOrLose = "Waiting";
   let isPaused = false;
 
   /* Create the sounds */
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //assign functions to keyCodes
   function control(e) {
-    if (winOrLose != "GameOver") {
+    if (winOrLose === "Playing") {
       if (e.keyCode === 37) {
         moveLeft();
       } else if (e.keyCode === 38) {
@@ -314,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(timerId);
       timerId = null;
     } else {
+      winOrLose = "Playing"
       sounds.signin.pause();
       sounds.background.play();
       draw();
