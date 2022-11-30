@@ -28,6 +28,9 @@ const gameFinish = () => {
   if (line_left == line_right) {
     document.getElementById("result").innerHTML = "It's a DRAW!"; //draw
   }
+  if (line_left > line_right) {
+    document.getElementById("result").innerHTML = "You WIN"; //lose
+  }
   //lines and scores
   document.getElementById("score").innerHTML = line_left * 10;
   document.getElementById("lines").innerHTML = line_left;
