@@ -200,9 +200,9 @@ const Game = (function () {
       tile = theTetrominoes[random].tile[currentRotation];
       name = theTetrominoes[random].name;
       currentPosition = 4;
+      addScore();
       draw();
       displayShape();
-      addScore();
       if (
         tile.some((index) =>
           squares[currentPosition + index].classList.contains("taken")
@@ -226,7 +226,6 @@ const Game = (function () {
         clearInterval(timerId);
         timerId = null;
       }
-      timerId = setInterval(moveDown, 5000);
     }
   };
 
