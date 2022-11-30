@@ -1,4 +1,10 @@
 const Authentication = (function () {
+  let user = null;
+
+  const getUser = () => {
+    return user;
+  };
+
   const signin = function (username, password, onSuccess, onError) {
     const json = JSON.stringify({ username, password });
 
@@ -13,9 +19,9 @@ const Authentication = (function () {
           if (onError) onError(json.error);
         } else {
           user = json.user;
-          document.getElementById('name-left').innerHTML = user.name;
-          document.getElementById('username-left').innerHTML = user.username;
-          
+          document.getElementById("name-left").innerHTML = user.name;
+          document.getElementById("username-left").innerHTML = user.username;
+
           if (onSuccess) onSuccess();
         }
       })
@@ -23,5 +29,5 @@ const Authentication = (function () {
         console.log("Error!");
       });
   };
-  return { signin };
+  return { getUser, signin };
 })();

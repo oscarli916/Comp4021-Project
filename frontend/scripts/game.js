@@ -1,15 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.querySelector(".grid");
-  let squares = Array.from(document.querySelectorAll(".grid div"));
-  const scoreDisplay = document.querySelector("#score-left");
-  const lineDisplay = document.querySelector("#line-left");
-  const startBtn = document.querySelector("#start-button");
+const Game = (function () {
+  let grid;
+  let squares;
+  let opponentSquares;
+  let scoreDisplay;
+  let lineDisplay;
+  let displaySquares;
+  let opponentDisplaySquares;
+
   const width = 10;
   let nextRandom = 0;
   let timerId;
   let score = 0;
   let winOrLose = "Waiting";
   let isPaused = false;
+
+  const initialize = () => {
+    grid = document.querySelector(".grid");
+    squares = Array.from(document.querySelectorAll(".current div"));
+    opponentSquares = Array.from(document.querySelectorAll(".opponent div"));
+    scoreDisplay = document.querySelector("#score-left");
+    lineDisplay = document.querySelector("#line-left");
+    displaySquares = document.querySelectorAll(".current-mini div");
+    opponentDisplaySquares = document.querySelectorAll(".opponent-mini div");
+  };
 
   //The Tetrominoes
   const lTetromino = {
@@ -120,14 +133,46 @@ document.addEventListener("DOMContentLoaded", () => {
   //move down function
   function moveDown() {
     if (timeRemaining < 1) {
-      gameOver();
+      Socket.sendGameOver();
     } else {
       undraw();
       currentPosition += width;
       draw();
       freeze();
+      Socket.sendBoard(
+        getClassNameFromSquare(squares),
+        score,
+        getClassNameFromSquare(displaySquares)
+      );
     }
   }
+
+  const getClassNameFromSquare = (squares) => {
+    let allClassNames = [];
+    squares.forEach((square) => {
+      allClassNames.push(square.classList.value.split(" "));
+    });
+    return allClassNames;
+  };
+
+  const updateOpponentBoard = (username, board, score, miniBoard) => {
+    if ($("#username-left").text() !== username) {
+      $("#score-right").text(`Score: ${score}`);
+      $("#line-right").text(score / 10);
+      for (let i = 0; i < opponentSquares.length; i++) {
+        opponentSquares[i].className = "";
+        board[i].forEach((element) => {
+          if (element !== "") opponentSquares[i].classList.add(element);
+        });
+      }
+      for (let i = 0; i < opponentDisplaySquares.length; i++) {
+        opponentDisplaySquares[i].className = "";
+        miniBoard[i].forEach((element) => {
+          if (element !== "") opponentDisplaySquares[i].classList.add(element);
+        });
+      }
+    }
+  };
 
   //freeze function
   function freeze() {
@@ -153,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
           squares[currentPosition + index].classList.contains("taken")
         )
       )
-        gameOver();
+        Socket.sendGameOver();
     }
   }
 
@@ -250,7 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /////////
 
   //show up-next tetromino in mini-grid display
-  const displaySquares = document.querySelectorAll(".mini-grid div");
   const displayWidth = 4;
   const displayIndex = 0;
 
@@ -290,8 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //add functionality to the button
-  startBtn.addEventListener("click", () => {
+  const gameStart = () => {
     if (timerId) {
       clearInterval(timerId);
       timerId = null;
@@ -304,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nextRandom = Math.floor(Math.random() * theTetrominoes.length);
       displayShape();
     }
-  });
+  };
 
   //add score
   function addScore() {
@@ -358,6 +401,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let timeRemaining = 180;
   const reduceTime = () => {
     timeRemaining--;
-    $("#timer").text(timeRemaining);
+    $(".timer").text(timeRemaining);
   };
-});
+
+  return { gameStart, initialize, updateOpponentBoard, gameOver };
+})();

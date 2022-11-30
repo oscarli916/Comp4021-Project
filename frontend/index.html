@@ -106,7 +106,7 @@
                         </tr>
                         <tr>
                             <td>Cheat(stop)</td>
-                            <td>Hold spacebar</td>
+                            <td>Press spacebar</td>
                         </tr>
                     </table>
 
@@ -116,10 +116,14 @@
         </div>
     </div>
 
-    <script src="/scripts/registration.js"></script>
-    <script src="/scripts/authentication.js"></script>
+    <script src="scripts/registration.js"></script>
+    <script src="scripts/authentication.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/socket.js"></script>
+    <script src="/socket.io/socket.io.min.js"></script>
     <script>
         $(document).ready(function () {
+            Game.initialize();
 
             $("#sign-in-form").on("submit", (e) => {
                 // Do not submit the form
@@ -132,16 +136,10 @@
                 // Send a signin request
                 Authentication.signin(username, password,
                     () => {
-
-                        /*
-                        hide();
-                        UserPanel.update(Authentication.getUser());
-                        UserPanel.show();
-                        
-                        Socket.connect();*/
                         $(".login-page").hide();
                         $("#bgVideo").hide();
                         $(".game-page").show();
+                        Socket.connect();
                     },
                     (error) => { $("#sign-in-message").text(error); }
                 );
@@ -156,9 +154,6 @@
                 const username = $("#sign-up-user").val().trim();
                 const name = $("#sign-up-name").val().trim();
                 const password = $("#sign-up-pass").val().trim();
-                console.log(username);
-                console.log(name);
-                console.log(password);
 
                 // Send a register request
                 Registration.register(username, name, password,
@@ -172,25 +167,34 @@
         });
     </script>
 
+    <div id="waitingModal" class="modal">
+
+        <div class="modal-content">
+            <h1>Waiting for other players to connect ...</h1>
+        </div>
+
+    </div>
+
     <div class="game-page">
         <h1 class="game-h1">T e t r i s</h1>
 
         <div class="board">
             <div class="board-left">
-                <button class="custom-btn btn-start" id="start-button">Start</button>
+                <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
                 <div id="name-left" style="display: none;"></div>
                 <div class="score-grid gradient-border">
                     <h3 class="game-h3">
                         <div id="username-left"></div>
-                        <span id="score-left">Score: 0</span></h3>
+                        <span id="score-left">Score: 0</span>
+                    </h3>
                 </div>
 
                 <div class="container">
                     <div class="lines-grid">
-                        <h4 class="game-h4">Time Left: <span id="timer">180</span></h4>
+                        <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
                         <h4 class="game-h4">Lines: <span id="line-left">0</span></h4>
                     </div>
-                    <div class="mini-grid ">
+                    <div class="mini-grid current-mini">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -213,7 +217,7 @@
 
                 <div class="container">
 
-                    <div class="grid gradient-border">
+                    <div class="grid current gradient-border">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -430,21 +434,22 @@
             </div>
 
             <div class="board-right">
-                <button class="custom-btn btn-start" id="start-button">Start</button>
+                <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
 
                 <div class="score-grid gradient-border">
                     <div id="name-right" style="display: none;"></div>
                     <h3 class="game-h3">
                         <div id="username-right"></div>
-                        <span id="score-right">Score: 0</span></h3>
+                        <span id="score-right">Score: 0</span>
+                    </h3>
                 </div>
 
                 <div class="container">
                     <div class="lines-grid">
-                        <h4 class="game-h4">Time Left: <span id="timer">180</span></h4>
+                        <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
                         <h4 class="game-h4">Lines: <span id="line-right">0</span></h4>
                     </div>
-                    <div class="mini-grid ">
+                    <div class="mini-grid opponent-mini">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -467,7 +472,7 @@
 
                 <div class="container">
 
-                    <div class="grid gradient-border">
+                    <div class="grid opponent gradient-border">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -686,7 +691,6 @@
 
     </div>
 
-    <script src="scripts/game.js"></script>
 
     <div class="gameover-page">
         <div class="card">

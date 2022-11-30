@@ -625,3 +625,21 @@ h2 {
 .leaderboard-value {
   font-weight: 700;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: rgba(40, 57, 101, .9);
+  margin: 10% auto;
+  padding: 20px;
+  border: 5px solid #888;
+  width: 80%;
+  height: 60%;
+}

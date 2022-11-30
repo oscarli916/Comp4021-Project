@@ -1,13 +1,30 @@
 const bcrypt = require("bcrypt");
 const express = require("express");
+const session = require("express-session");
 const fs = require("fs");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
 const USER_FILE_PATH = "backend/data/users.json";
 const RANKING_PATH = "backend/data/ranking.json";
 
+const chatSession = session({
+  secret: "tetris",
+  resave: false,
+  saveUninitialized: false,
+  rolling: true,
+  cookie: { maxAge: 300000 },
+});
+
 const app = express();
 app.use(express.static("frontend"));
 app.use(express.json());
+app.use(chatSession);
+const httpServer = createServer(app);
+const io = new Server(httpServer);
+io.use((socket, next) => {
+  chatSession(socket.request, {}, next);
+});
 
 app.get("/test", (req, res) => {
   res.json({ status: "success", message: "Hello World!" });
@@ -65,10 +82,13 @@ app.post("/signin", (req, res) => {
     return;
   }
 
+  const responseUser = { name: users[username]["name"], username: username };
+
+  req.session.user = responseUser;
   res.json({
     status: "success",
     message: "successfully logged in",
-    user: { name: users[username]["name"], username: username },
+    user: responseUser,
   });
 });
 
@@ -105,6 +125,40 @@ app.post("/ranking", (req, res) => {
   res.json({ status: "success", message: "ranking remain unchanged" });
 });
 
-app.listen(8000, () => {
+let onlineUsers = [];
+
+io.on("connection", (socket) => {
+  if (socket.request.session.user) {
+    const user = socket.request.session.user;
+    onlineUsers.push(user);
+
+    if (onlineUsers.length === 1) {
+      socket.emit("waiting");
+    } else if (onlineUsers.length === 2) {
+      io.emit("game start", JSON.stringify(onlineUsers));
+    }
+  }
+
+  socket.on("send board", (content) => {
+    if (socket.request.session.user) {
+      const { board, score, miniBoard } = JSON.parse(content);
+      io.emit(
+        "board",
+        JSON.stringify({
+          username: socket.request.session.user.username,
+          board: board,
+          score: score,
+          miniBoard: miniBoard,
+        })
+      );
+    }
+  });
+
+  socket.on("send game over", () => {
+    if (socket.request.session.user) io.emit("game over");
+  });
+});
+
+httpServer.listen(8000, () => {
   console.log("Server starting at port 8000");
 });
