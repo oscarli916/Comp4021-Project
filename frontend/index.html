@@ -120,10 +120,12 @@
     <script src="scripts/authentication.js"></script>
     <script src="scripts/game.js"></script>
     <script src="scripts/socket.js"></script>
+    <script src="scripts/sprite.js"></script>
     <script src="/socket.io/socket.io.min.js"></script>
     <script>
         $(document).ready(function () {
             Game.initialize();
+            Sprite.initialize();
 
             /* Create the sounds */
             const sounds = {
@@ -192,6 +194,7 @@
                 <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
                     <div></div>
                 </div>
+                <canvas width="200" height="40"></canvas>
                 <div id="name-left" style="display: none;"></div>
                 <div class="score-grid gradient-border">
                     <h3 class="game-h3">
@@ -446,7 +449,7 @@
 
             <div class="board-right">
                 <!-- <button class="custom-btn btn-start" id="start-button">Start</button> -->
-
+                
                 <div class="score-grid gradient-border">
                     <div id="name-right" style="display: none;"></div>
                     <h3 class="game-h3">
