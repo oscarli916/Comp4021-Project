@@ -19,4 +19,4 @@ const Registration = function () {
       });
   };
   return { register };
-};
+}();
