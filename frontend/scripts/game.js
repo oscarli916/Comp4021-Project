@@ -14,6 +14,17 @@ const Game = (function () {
   let winOrLose = "Waiting";
   let isPaused = false;
 
+  /* Create the sounds */
+  const sounds = {
+    signin: new Audio("signin.mp3"),
+    background: new Audio("bg.mp3"),
+    clear: new Audio("lineCleared.mp3"),
+    gameover: new Audio("GameOver.mp3"),
+  };
+  sounds.background.loop = true;
+  sounds.signin.loop = true;
+  sounds.gameover.loop = true;
+
   const initialize = () => {
     grid = document.querySelector(".grid");
     squares = Array.from(document.querySelectorAll(".current div"));
@@ -21,18 +32,7 @@ const Game = (function () {
     scoreDisplay = document.querySelector("#score-left");
     lineDisplay = document.querySelector("#line-left");
     displaySquares = document.querySelectorAll(".current-mini div");
-    opponentDisplaySquares = document.querySelectorAll(".opponent-mini div");
-
-    /* Create the sounds */
-    const sounds = {
-      signin: new Audio("signin.mp3"),
-      background: new Audio("bg.mp3"),
-      clear: new Audio("lineCleared.mp3"),
-      gameover: new Audio("GameOver.mp3"),
-    };
-    sounds.background.loop = true;
-    sounds.signin.loop = true;
-    sounds.gameover.loop = true;
+    opponentDisplaySquares = document.querySelectorAll(".opponent-mini div"); 
   };
 
   //The Tetrominoes
