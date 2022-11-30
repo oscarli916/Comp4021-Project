@@ -624,3 +624,25 @@ h2 {
 .leaderboard-value {
   font-weight: 700;
 }
+.round-time-bar div {
+  width: 200px;
+  height: 20px;
+  margin: 0rem;
+  overflow: hidden;
+  animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))forwards;
+  transform-origin: left center;
+  background: linear-gradient(.25turn, red, 20%, green);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.round-time-bar[data-style="smooth"] div {
+  animation: roundtime calc(var(--duration) * 1s) linear forwards;
+}
+
+@keyframes roundtime {
+  to {
+    /* More performant than `width` */
+    transform: scaleX(0);
+  }
+}
